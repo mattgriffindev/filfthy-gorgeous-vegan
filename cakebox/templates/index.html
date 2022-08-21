@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block header %}
+<!--hero-->
+<section id="hero">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 p-0">
+				<div class="hero-image-container">
+					<div class="hero-image ">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-6 hero-text">
+									<p class="mgd-display-1">Think it's all <span class="mgd-underline">nuts</span>?</p>
+									<p class="mgd-display-2">Think again!</p>
+									<p class="mgd-display-3">Feast your eyeballs on these fithly, gorgeous vegan delights...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/hero-->
+
+<!--quick-links-->
+<section id="quick-links">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-4 p-0">
+				<div class="quick-links-image-container">
+					<div class="quick-links-image image2">
+						<div class="quick-links-text">
+							<a href="{{ url_for('recipes') }}">Recipes</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 p-0">
+				<div class="quick-links-image-container">
+					<div class="quick-links-image image3">
+						<div class="quick-links-text">
+							<a href="{{ url_for('index') }}">Blog</a>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="col-4 p-0">
+				<div class="quick-links-image-container">
+					<div class="quick-links-image image4">
+						<div class="quick-links-text">
+							<a href="{{ url_for('about') }}">About us</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/quick-links-->
+
+<!--features-->
+<section id="features">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-6 p-4 features-text-left">
+				<h3>Sample heading</h3>
+				<h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla mollitia enim ab eius culpa aut doloribus
+					quos reprehenderit fugit corrupti, sit hic voluptate voluptatem dolor sapiente quidem! Fuga, amet incidunt.
+				</h6>
+			</div>
+			<div class="col-6 p-0">
+				<div class="features-image-container">
+					<div class="features-image"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6 p-0">
+				<div class="features-image-container">
+					<div class="features-image"></div>
+				</div>
+			</div>
+			<div class="col-6 p-4 features-text-right">
+				<h3>Sample heading</h3>
+				<h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla mollitia enim ab eius culpa aut doloribus
+					quos reprehenderit fugit corrupti, sit hic voluptate voluptatem dolor sapiente quidem! Fuga, amet incidunt.
+				</h6>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/features-->
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
