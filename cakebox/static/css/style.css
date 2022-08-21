@@ -1,0 +1,108 @@
+:root {
+	--brand-color: #E4AE0B;
+	--light-color: #F2EBEE;
+	--mid-color: #0D0D0D;
+	--dark-color: #0D0000;
+	--heart: #ffb3be;
+
+	--brand-font: 'Garamond';
+	--primary-font: 'Arial';
+	--signature: 'Helvetica';
+	  }
+
+* {
+	box-sizing: border-box;
+	font-family: var(--primary-font);
+}
+
+html {
+	font-size: 16px;
+}
+
+/*-----------------------------------------------------------------footer-*/
+
+#footer-top {
+	color: var(--light-color);
+	background: var(--mid-color);
+}
+
+#footer-top ul {
+	list-style: none;
+	padding: 0;
+}
+
+#footer-top li {
+	margin-bottom: 0.25rem;
+}
+
+#footer-top a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.footer-top-col {
+	margin-top: 1rem;
+}
+
+.footer-top-heading {
+	font-weight: 700;
+}
+
+#footer-bot {
+	display: flex;
+	align-items: center;
+	color: var(--light-color);
+	background: var(--dark-color);
+}
+
+#footer-bot a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#footer-bot p {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.footer-bot-left,
+.footer-bot-right {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+.footer-bot-left {
+	display: flex;
+  	align-items: center;
+}
+
+.social-media-icon {
+	margin-right: 1.5rem;
+	color: inherit;
+	font-size: 1.25rem;
+}
+
+.signature {
+	font-family: var(--signature);
+}
+
+.hvr-pulse:hover {
+	color: var(--heart);
+}
+
+/*-------------------------------------------------------------------misc-*/
+
+.btn-main,
+.btn-main:hover {
+	color: var(--dark-color);
+	font-weight: 500;
+	background: var(--brand-color);
+}
+
+.btn-main-reverse,
+.btn-main-reverse:hover {
+	margin-right: 0.5rem;
+	color: var(--brand-color);
+	font-weight: 500;
+	background: var(--dark-color);	
+}
