@@ -153,6 +153,11 @@ html {
 
 /*-----------------------------------------------------------------footer-*/
 
+#footer {
+    position: relative;
+    bottom: 0;
+}
+
 #footer-top {
 	color: var(--light-color);
 	background: var(--mid-color);
