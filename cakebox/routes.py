@@ -53,6 +53,11 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/recipes")
+def recipes():
+    return render_template("recipes.html")
+
+
 @app.route("/terms")
 def terms():
     return render_template("terms.html")
