@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap');
+
 :root {
+
 	--brand-color: #E4AE0B;
 	--light-color: #F2EBEE;
-	--mid-color: #0D0D0D;
+	--mid-color: #0D0D0D; 
 	--dark-color: #0D0000;
 	--heart: #ffb3be;
 
-	--brand-font: 'Garamond';
-	--primary-font: 'Arial';
-	--signature: 'Helvetica';
-	  }
+	--brand-font: 'Poiret One';
+	--primary-font: 'Didact Gothic';
+	--signature: 'M PLUS 1 Code', cursive;
+}
 
 * {
 	box-sizing: border-box;
@@ -21,7 +25,7 @@ html {
 
 /*-----------------------------------------------------------------header-*/
 
-.navbar {
+/* .navbar {
 	background-color: var(--dark-color);
 }
 
@@ -56,11 +60,48 @@ html {
 .header-buttons {
 	position: absolute;
 	right: 1rem;
+} */
+
+#navbarText {
+	justify-content: flex-end;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+	color: var(--dark-color);
+	font-family: var(--brand-font);
+	font-size: 2rem;
+}
+
+.navbar-toggler {
+	border: none;
+}
+
+.navbar-toggler:focus {
+	box-shadow: none;
+}
+
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28253,	200,	7, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link,
+.nav-link:hover {
+	margin: auto 0.5rem;
+	color: var(--brand-color);
+	font-family: var(--primary-font);
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+.header-buttons {
+	position: absolute;
+	right: 1rem;
 }
 
 /*-------------------------------------------------------------------hero-*/
 
-#hero {
+/* #hero {
 	background-color: var(--light-color);
 }
 
@@ -86,6 +127,37 @@ html {
 
 	display: flex;
     align-items: center;
+} */
+
+#hero {
+	background-color: white;
+}
+
+.hero-image-container {
+	height: 32rem;
+	
+
+}
+
+
+.hero-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+
+	    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+	padding: 0.5rem;
+	color: var(--light-color);
+	background-color: #936b6a;
+	opacity: 0.9;
+}
+
+.hero-text p {
+	line-height: 1;
 }
 
 /*------------------------------------------------------------quick-links-*/
@@ -113,15 +185,11 @@ html {
 	color: var(--light-color);
 	font-family: var(--brand-font);
 	font-size: 3rem;
-	font-weight: 300;;
+	font-weight: 300;
 	text-decoration: none;
 }
 
 /*---------------------------------------------------------------features-*/
-
-#features {
-	background: var(--light-color);
-}
 
 .features-text-left,
 .features-text-right {
@@ -137,7 +205,7 @@ html {
 
 .features-text-right {
 	justify-content: flex-start;
-	text-align: leftt;
+	text-align: left;
 }
 
 .features-image-container {
@@ -147,7 +215,7 @@ html {
 
 .features-image {
 	height: 100%;
-	background: url("../img/test-image.jpg") no-repeat center;
+	background: url("../img/hero.webp") no-repeat center;
 	background-size: cover;
 }
 
@@ -158,7 +226,7 @@ html {
     bottom: 0;
 }
 
-#footer-top {
+/* #footer-top {
 	color: var(--light-color);
 	background: var(--mid-color);
 }
@@ -217,6 +285,65 @@ html {
 	margin-right: 1.5rem;
 	color: inherit;
 	font-size: 1.25rem;
+}
+
+.signature {
+	font-family: var(--signature);
+}
+
+.hvr-pulse:hover {
+	color: var(--heart);
+} */
+
+#footer {
+	color: var(--dark-color);
+}
+
+#footer .container {
+	border-top: 1px solid #936b6a;
+}
+
+#footer ul {
+	list-style: none;
+	padding: 0;
+}
+
+#footer li {
+	margin-bottom: 0.25rem;
+}
+
+#footer a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.footer-heading {
+	font-weight: 700;
+}
+
+#footer {
+	color: var(--dark-color);
+}
+
+#footer p {
+	margin: 0;
+	font-size: 1rem;
+}
+
+
+.footer-left {
+	display: flex;
+  align-items: center;
+}
+
+.social-media-icon {
+	margin-right: 1.5rem;
+	color: inherit;
+	font-size: 1.25rem;
+}
+
+.strong {
+	font-weight: 600;
 }
 
 .signature {
