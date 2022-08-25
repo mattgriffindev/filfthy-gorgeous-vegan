@@ -375,3 +375,18 @@ html {
 .mgd-display-2 { font-size: 4.25rem; font-style: italic; transform: scaleY(1.1); }
 .mgd-display-3 { font-size: 1.5rem; font-weight: 300; color: pink; } /*COLOR TBC*/
 .mgd-underline { border-bottom: 1px solid var(--light-color); }
+
+
+
+
+.add-category-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+}
+
+.edit-category-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+}

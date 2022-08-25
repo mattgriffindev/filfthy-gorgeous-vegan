@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block header %}
+<!--edit-category-->
+<section id="edit-category">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="edit-category-image"></div>
+            </div>
+            <div class="col-12 col-md-6">
+                <form method="POST" class="contact-form"
+                    action="{{ url_for('edit_category', category_id=category.id) }}" novalidate>
+                    <h4>Edit a category</h4>
+                    <p>Use the form below to edit a category.</p>
+                    <div class="mb-3">
+                        <input type="text" class="form-control validate" value="{{ category.category_name }}"
+                            name="category_name" id="category_name" placeholder="Category name (Required)"
+                            maxlength="50" required>
+                    </div>
+                    <button type="submit" class="btn btn-md btn-main submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/edit-category-->
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
