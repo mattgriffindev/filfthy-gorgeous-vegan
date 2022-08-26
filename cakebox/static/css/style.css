@@ -7,6 +7,7 @@
 	--light-color: #F2EBEE;
 	--mid-color: #0D0D0D;
 	--dark-color: #0D0000;
+	--white: #FFFFFF;
 	--heart: #ffb3be;
 
 	--brand-font: 'Poiret One';
@@ -136,10 +137,6 @@ p {
 /*---------------------------------------------------------------------------index-*/
 /*---------------------------------------------------hero-*/
 
-#hero {
-	background-color: white;
-}
-
 .hero-image-container {
 	height: 32rem;
 }
@@ -148,16 +145,14 @@ p {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
 	background-size: cover;
-
 	display: flex;
 	align-items: center;
 }
 
 .hero-text {
 	padding: 0.5rem;
-	color: var(--light-color);
-	background-color: #936b6a;
-	opacity: 0.9;
+	color: var(--white);
+	background-color: rgba(147, 107, 106, 0.8);
 }
 
 .hero-text p {
@@ -174,7 +169,6 @@ p {
 .quick-links-image {
 	height: 100%;
 	background-size: cover;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -197,9 +191,9 @@ p {
 
 .quick-links-text,
 .quick-links-text a {
-	color: var(--light-color);
+	color: var(--white);
 	font-family: var(--brand-font);
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-weight: 300;
 	text-decoration: none;
 }
@@ -277,14 +271,16 @@ p {
 
 .categories-image-container {
 	height: 12rem;
-	width: auto;
 }
 
 .categories-image {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
 	background-size: cover;
+	display: flex;
+	align-items: center;
 }
+
 .add-category-image {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
@@ -297,12 +293,26 @@ p {
 	background-size: cover;
 }
 
-.category-card-title {
-	font-size: 1.5rem;
-	color: var(--dark-color);
+.category-card {
+	height: 12rem;
+	margin-bottom: 1.5rem;
+	
 }
 
-.category-col {
-	display: flex;
-    justify-content: center;
+.category-card-image {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+	
 }
+
+.category-card-text {
+	color: var(--white);
+	font-family: var(--brand-font);
+	font-size: 2.5rem;
+	font-weight: 300;
+	
+}
+
