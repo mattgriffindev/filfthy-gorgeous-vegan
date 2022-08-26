@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap');
 
 :root {
-
 	--brand-color: #E4AE0B;
 	--light-color: #F2EBEE;
 	--mid-color: #0D0D0D;
@@ -155,10 +154,6 @@ p {
 	background-color: rgba(147, 107, 106, 0.8);
 }
 
-.hero-text p {
-	line-height: 1;
-}
-
 /*--------------------------------------------quick-links-*/
 
 .quick-links-image-container {
@@ -246,8 +241,8 @@ p {
 }
 
 .mgd-display-1 {
+	font-family: var(--brand-font);
 	font-size: 3.25rem;
-	font-weight: 300;
 }
 
 .mgd-display-2 {
@@ -258,7 +253,6 @@ p {
 
 .mgd-display-3 {
 	font-size: 1.5rem;
-	font-weight: 300;
 	color: pink;
 }
 
@@ -269,7 +263,8 @@ p {
 
 /*-------------------------------------------categories/add-category/edit-category-*/
 
-.categories-image-container {
+.categories-image-container,
+.add-category-image-container {
 	height: 12rem;
 }
 
@@ -285,6 +280,8 @@ p {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
 	background-size: cover;
+	display: flex;
+	align-items: center;
 }
 
 .edit-category-image {
@@ -296,7 +293,6 @@ p {
 .category-card {
 	height: 12rem;
 	margin-bottom: 1.5rem;
-	
 }
 
 .category-card-image {
@@ -305,7 +301,6 @@ p {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
 	background-size: cover;
-	
 }
 
 .category-card-text {
@@ -313,6 +308,5 @@ p {
 	font-family: var(--brand-font);
 	font-size: 2.5rem;
 	font-weight: 300;
-	
 }
 
