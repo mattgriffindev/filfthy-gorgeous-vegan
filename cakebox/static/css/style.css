@@ -301,3 +301,8 @@ p {
 	font-size: 1.5rem;
 	color: var(--dark-color);
 }
+
+.category-col {
+	display: flex;
+    justify-content: center;
+}
