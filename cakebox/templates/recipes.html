@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <!-- {% for recipe in recipes|sort(attribute="recipe_name") %} -->
+                    {% for recipe in recipes|sort(attribute="recipe_name") %}
                     <div class="col-md-6">
                         <div class="recipe-card">
 
@@ -59,10 +59,10 @@
 
                                 <span>
                                     <a class="btn btn-sm btn-success"
-                                        href="{{ url_for('edit_category', category_id=category.id) }}"
+                                        href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
                                         role="button">Edit</a>
                                     <a class="btn btn-sm btn-danger"
-                                        href="{{ url_for('delete_category', category_id=category.id) }}"
+                                        href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}"
                                         role="button">Delete</a>
                                 </span>
                             
@@ -72,7 +72,7 @@
 
                         </div>
                     </div>
-                    <!-- {% endfor %} -->
+                    {% endfor %}
                 </div>
             </div>
         </div>
