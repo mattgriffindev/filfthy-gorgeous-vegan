@@ -310,3 +310,51 @@ p {
 	font-weight: 300;
 }
 
+/*--------------------------------------------------recipes/add-recipe/edit-recipe-*/
+
+.recipes-image-container,
+.add-recipe-image-container {
+	height: 12rem;
+}
+
+.recipes-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+}
+
+.add-recipe-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+}
+
+.edit-recipe-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+}
+
+/* .category-card {
+	height: 12rem;
+	margin-bottom: 1.5rem;
+}
+
+.category-card-image {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+}
+
+.category-card-text {
+	color: var(--white);
+	font-family: var(--brand-font);
+	font-size: 2.5rem;
+	font-weight: 300;
+} */
