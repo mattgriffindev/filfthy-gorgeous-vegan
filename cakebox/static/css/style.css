@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+
 :root {
 	--brand-color: #E4AE0B;
 	--light-color: #F2EBEE;
@@ -9,8 +17,8 @@
 	--white: #FFFFFF;
 	--heart: #ffb3be;
 
-	--brand-font: 'Poiret One';
-	--primary-font: 'Didact Gothic';
+	--brand-font: 'Dancing Script';
+	--primary-font: 'Roboto';
 	--signature: 'M PLUS 1 Code', cursive;
 }
 
@@ -38,7 +46,7 @@ p {
 .navbar-brand:hover {
 	color: var(--dark-color);
 	font-family: var(--brand-font);
-	font-size: 2rem;
+	font-size: 2.2rem;
 }
 
 .navbar-toggler {
@@ -339,22 +347,6 @@ p {
 	background-size: cover;
 }
 
-/* .category-card {
-	height: 12rem;
-	margin-bottom: 1.5rem;
+.recipe-card {
+	border: 1px solid orange;
 }
-
-.category-card-image {
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
-}
-
-.category-card-text {
-	color: var(--white);
-	font-family: var(--brand-font);
-	font-size: 2.5rem;
-	font-weight: 300;
-} */
