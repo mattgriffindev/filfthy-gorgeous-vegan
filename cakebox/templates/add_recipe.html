@@ -10,7 +10,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-6 hero-text">
-                                    <p class="mgd-display-1">Add category</p>
+                                    <p class="mgd-display-1">Add recipe</p>
                                 </div>
                             </div>
                         </div>
@@ -32,39 +32,53 @@
                         <input type="text" class="form-control validate" name="recipe_name" id="recipe_name"
                             placeholder="Recipe name (Required)" maxlength="50" required>
                     </div>
-                    <div class="mb-3">
-                        <input type="number" class="form-control validate" name="recipe_prep" id="recipe_prep"
-                            placeholder="Preparation time (Required)" min="1" max="60" step="1">
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <input type="number" class="form-control validate" name="recipe_prep" id="recipe_prep"
+                                    placeholder="Preparation time (Required)" min="1" max="60" step="1">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <input type="number" class="form-control validate" name="recipe_bake" id="recipe_bake"
+                                    placeholder="Bake time (Required)" min="1" max="60" step="1">
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <input type="number" class="form-control validate" name="recipe_bake" id="recipe_bake"
-                            placeholder="Bake time (Required)" min="1" max="60" step="1">
-                    </div>
-                    <div class="mb-3">
-                        <input type="number" class="form-control validate" name="recipe_serves" id="recipe_serves"
-                            placeholder="Serves (Required)" min="1" max="10" step="1">
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-select" name="recipe_difficulty" id="recipe_difficulty" aria-label="Default select example">
-                            <option value="" disabled selected>Difficulty (Required)</option>
-                            <option value="1">Easy</option>
-                            <option value="2">A little effort</option>
-                            <option value="3">A challenge</option>
-                            <option value="4">Ambitious</option>
-                        </select>
-                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <input type="number" class="form-control validate" name="recipe_serves" id="recipe_serves"
+                                    placeholder="Serves (Required)" min="1" max="10" step="1">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <select class="form-select" name="recipe_difficulty" id="recipe_difficulty" aria-label="Default select example">
+                                    <option value="" disabled selected>Difficulty (Required)</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="A little effort">A little effort</option>
+                                    <option value="A challenge">A challenge</option>
+                                    <option value="Ambitious">Ambitious</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>               
                     <div class="mb-3">
                         <textarea type="text" class="form-control" name="recipe_desc" id="recipe_desc"
-                            placeholder="Recipe description (Required)" maxlength="500" required></textarea>
+                            placeholder="Instructions (Required)" maxlength="500" required></textarea>
                     </div>
                     <!-- category-id -->
                     <select id="category_id" name="category_id" class="form-select" required>
-                        <option value="" disabled selected>Choose Category</option>
+                        <option value="" disabled selected>Choose a category</option>
                         {% for category in categories %}
                         <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
                     <!-- submit button -->
+                    <br>
                     <button type="submit" class="btn btn-md btn-main submit-btn">Submit</button>
                 </form>
             </div>

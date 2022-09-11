@@ -79,7 +79,7 @@ p {
 }
 
 #footer .container {
-	border-top: 1px solid #936b6a;
+	border-top: 1px solid var(--brand-color);
 }
 
 #footer ul {
@@ -123,6 +123,10 @@ p {
 
 .strong {
 	font-weight: 600;
+}
+
+.footer-row {
+	text-align: center;
 }
 
 .signature {
@@ -268,6 +272,14 @@ p {
 	height: 12rem;
 }
 
+.category-card-overlay {
+	height: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .categories-image {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
@@ -312,6 +324,18 @@ p {
 
 /*--------------------------------------------------recipes/add-recipe/edit-recipe-*/
 
+#recipes h6 {
+	color: rgb(147, 107, 106);
+	font-size: large;
+}
+
+.recipe-table {
+	width: 100%;
+	
+	font-size: 1rem;
+	text-align: center;
+}
+
 .recipes-image-container,
 .add-recipe-image-container {
 	height: 12rem;
@@ -340,5 +364,5 @@ p {
 }
 
 .recipe-card {
-	border: 1px solid orange;
+	border-top: 1px solid var(--brand-color);
 }

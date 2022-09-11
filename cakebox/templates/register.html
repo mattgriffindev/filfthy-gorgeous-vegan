@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block header %}
+<!--register-->
+<section id="register" class="my-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 p-0">
+                <div class="register-image-container">
+                    <div class="register-image"></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 register-col">
+                <h2 class="login-register">Register</h2>
+                <p>* Required</p>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="user-name"
+                            placeholder="User name (at least 4 characters)*" minlength="4" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="first-name" placeholder="First name*" minlength="2"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email-address" placeholder="Email address*"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="password"
+                            placeholder="Password (at least 8 characters)*" minlength="8" required>
+                    </div>
+                    <p>By clicking register, you confirm you are over 16 and you agree to our <a
+                            href="{{ url_for('terms') }}">terms and conditions</a> and <a
+                            href="{{ url_for('privacy') }}">privacy policy</a>.</p>
+                    <button type="submit" class="btn btn-main" aria-label="Register">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/register-->
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

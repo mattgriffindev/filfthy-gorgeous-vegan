@@ -10,7 +10,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-6 hero-text">
-                                    <p class="mgd-display-1">categories</p>
+                                    <p class="mgd-display-1">Categories</p>
                                 </div>
                             </div>
                         </div>
@@ -37,15 +37,22 @@
                     <div class="col-md-4">
                         <div class="category-card">
                             <div class="category-card-image">
+
+                                <div class="category-card-overlay">
+
                                 <p class="category-card-text">{{ category.category_name }}</p>
-                                <span>
+                                
+                                <p>
                                     <a class="btn btn-sm btn-success"
                                         href="{{ url_for('edit_category', category_id=category.id) }}"
                                         role="button">Edit</a>
                                     <a class="btn btn-sm btn-danger"
                                         href="{{ url_for('delete_category', category_id=category.id) }}"
                                         role="button">Delete</a>
-                                </span>
+                                    </p>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>

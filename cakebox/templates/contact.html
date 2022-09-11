@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block header %}
+<!--contact-->
+<section id="contact">
+    <div class="container">
+        <div class="row gy-4 d-flex justify-content-center">
+            <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
+                <table class="contact-info">
+
+
+                    <tr>
+                        <td class="align-top"><i class="fas fa-map-marker-alt icon"></i></td>
+                        <td>84 Westgate St.<br>
+                            Cardiff<br>
+                            CF10 1NS</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><i class="fas fa-phone-alt icon"></i></td>
+                        <td>0330 123 4567</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-envelope icon"></i></td>
+                        <td><a href="mailto:matt.griffin@live.co.uk">info@fgvegan.co.uk</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-12 col-md-5">
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+
+                <form method="POST" class="contact-form" novalidate>
+                    <h4>Send us a message</h4>
+                    <p>Simply fill in the form below and we'll get back to you</p>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="form-name" id="form-name"
+                            placeholder="Name (Required)" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="form-email" id="form-email"
+                            placeholder="Email address (Required)" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="form-phone" id="form-phone"
+                            placeholder="Phone number (Required)" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" name="form-text" id="form-text" rows="3"
+                            placeholder="Enter your message here (Required)" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-md rounded-pill btn-main submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/contact-->
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

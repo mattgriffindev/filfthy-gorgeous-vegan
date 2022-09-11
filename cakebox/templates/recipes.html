@@ -35,31 +35,28 @@
                 <div class="row">
                     {% for recipe in recipes|sort(attribute="recipe_name") %}
                     <div class="col-md-6">
-                        <div class="recipe-card">
+                        <div class="recipe-card p-2">
 
 
-                            <h5 class="card-title">{{ recipe.recipe_name }}</h5>
-                            
-                                <table class="recipe-table">
-                                    <tr>
-                                        <td><i class="fas fa-list"></i></td>
-                                        <td><i class="far fa-clock"></i></td>
-                                        <td><i class="fas fa-user-friends"></i></td>
-                                        <td><i class="fas fa-star"></i></td>
-                                    </tr>
+                            <h3 class="card-title">{{ recipe.recipe_name }}</h3>
+                                <h6>At a glance:</h6>
+
+                                <table class="recipe-table my-2">
                                     <tr>
                                         <td>Prep</td>
                                         <td>Bake</td>
                                         <td>Serves</td>
-                                        <td>Easy</td>
+                                        <td>Difficulty</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ recipe.recipe_prep }}</td>
-                                        <td>{{ recipe.recipe_bake }}</td>
-                                        <td>{{ recipe.recipe_serves }}</td>
+                                        <td>{{ recipe.recipe_prep }} mins</td>
+                                        <td>{{ recipe.recipe_bake }} mins </td>
+                                        <td>{{ recipe.recipe_serves }} people</td>
                                         <td>{{ recipe.recipe_difficulty }}</td>
                                     </tr>
                                 </table>
+
+                                <h6>Instructions:</h6>
 
                                 <p>{{ recipe.recipe_desc }}</p>
 
