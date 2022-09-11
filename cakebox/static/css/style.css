@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap');
 
-
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-
-
-
 :root {
 	--brand-color: #E4AE0B;
 	--light-color: #F2EBEE;
@@ -17,8 +9,8 @@
 	--white: #FFFFFF;
 	--heart: #ffb3be;
 
-	--brand-font: 'Dancing Script';
-	--primary-font: 'Roboto';
+	--brand-font: 'Poiret One';
+	--primary-font: 'Didact Gothic';
 	--signature: 'M PLUS 1 Code', cursive;
 }
 
