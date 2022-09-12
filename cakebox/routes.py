@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from cakebox import app, db
 from cakebox.models import Category, Recipe, Users
