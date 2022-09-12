@@ -1,3 +1,4 @@
+from functools import wraps
 from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from cakebox import app, db
@@ -7,6 +8,18 @@ from cakebox.models import Category, Recipe, Users
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+def login_required(f):
+    # Restricts page access - adapted from
+    # https://flask.palletsprojects.com/en/2.1.x/patterns/viewdecorators/
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            flash("You need to be logged in to view this page")
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @app.route("/about")
@@ -21,6 +34,7 @@ def categories():
 
 
 @app.route("/add_category", methods=["GET", "POST"])
+@login_required
 def add_category():
     if request.method == "POST":
         category = Category(category_name=request.form.get("category_name"))
@@ -31,6 +45,7 @@ def add_category():
 
 
 @app.route("/edit_category/<int:category_id>", methods=["GET", "POST"])
+@login_required
 def edit_category(category_id):
     category = Category.query.get_or_404(category_id)
     if request.method == "POST":
@@ -41,6 +56,7 @@ def edit_category(category_id):
 
 
 @app.route("/delete_category/<int:category_id>")
+@login_required
 def delete_category(category_id):
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
@@ -143,6 +159,7 @@ def recipes():
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
+@login_required
 def add_recipe():
     categories = list(Category.query.order_by(Category.category_name).all())
     if request.method == "POST":
@@ -162,6 +179,7 @@ def add_recipe():
 
 
 @app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
+@login_required
 def edit_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     categories = list(Category.query.order_by(Category.category_name).all())
@@ -178,6 +196,7 @@ def edit_recipe(recipe_id):
 
 
 @app.route("/delete_recipe/<int:recipe_id>")
+@login_required
 def delete_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     db.session.delete(recipe)
