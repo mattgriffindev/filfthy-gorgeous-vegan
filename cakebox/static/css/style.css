@@ -235,6 +235,7 @@ p {
     flex-direction: column;
 }
 
+.profile-image,
 .login-image,
 .register-image,
 .categories-image {
@@ -365,12 +366,6 @@ p {
 }
 
 .page-image-container {
-	height: 12rem;
-}
-
-.login-image-container,
-.recipes-image-container,
-.add-recipe-image-container {
 	height: 12rem;
 }
 

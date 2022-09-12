@@ -1,12 +1,33 @@
 {% extends "base.html" %}
 {% block header %}
+<!--profile-image-->
+<section id="login-image">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="page-image-container">
+                    <div class="profile-image ">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6 hero-text">
+                                    <p class="mgd-display-1">Hello!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/profile-image-->
+
 <!--profile-->
 <section id="profile" class="my-4">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-9">
-                <h2>PROFILE</h2>
-                <p>HELLO! {{ session.user }} </p>
+                <p>Hello, {{ session.user }}. Are you feeling peckish?</p>
                 <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a>
             </div>
         </div>
