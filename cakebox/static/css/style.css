@@ -276,6 +276,7 @@ p {
 	font-family: var(--brand-font);
 	font-size: 2.5rem;
 	font-weight: 300;
+	background-color: rgba(147, 107, 106, 0.8);
 }
 
 /*--------------------------------------------------recipes/add-recipe/edit-recipe-*/
