@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, session
+from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from cakebox import app, db
 from cakebox.models import Category, Recipe, Users
@@ -63,7 +63,7 @@ def privacy():
     return render_template("privacy.html")
 
 
-@app.route("/register/", methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if "user" in session:
         flash("You're already logged in!")
@@ -71,7 +71,9 @@ def register():
 
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = Users.query.filter(Users.username == request.form.get("username").lower()).all()
+        existing_user = Users.query.filter(Users.username ==
+                                           request.form.get(
+                                            "username").lower()).all()
 
         if existing_user:
             flash("Username already exists")
@@ -90,10 +92,18 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username")
-        flash("Registration successful!")
+        flash("Registration successful")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out. See you soon!")
+    session.pop("user")
+    return redirect(url_for("index"))
 
 
 @app.route("/recipes")

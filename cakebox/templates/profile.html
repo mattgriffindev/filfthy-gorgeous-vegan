@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block header %}
-<!--about-->
-<section id="privacy" class="my-4">
+<!--profile-->
+<section id="profile" class="my-4">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-9">
                 <h2>PROFILE</h2>
-                <p>HELLO! {{ session.user|capitalize }}</p>
+                <p>HELLO! {{ session.user }} </p>
             </div>
         </div>
     </div>
 </section>
-<!--/about-->
+<!--/profile-->
 {% endblock %}
 
 {% block footer %}

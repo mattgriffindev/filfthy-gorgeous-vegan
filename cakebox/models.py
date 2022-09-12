@@ -9,7 +9,7 @@ class Users(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return self.username, self.firstname
+        return db.Column(db.String(40), unique=True, nullable=False), self.firstname
 
 
 class Category(db.Model):
