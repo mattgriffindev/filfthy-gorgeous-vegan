@@ -224,52 +224,7 @@ p {
 	background-size: cover;
 }
 
-/*----------------------------------------------------------------------------misc-*/
-
-.btn-main,
-.btn-main:hover {
-	color: var(--dark-color);
-	font-weight: 500;
-	background: var(--brand-color);
-}
-
-.btn-main-reverse,
-.btn-main-reverse:hover {
-	margin-right: 0.5rem;
-	color: var(--brand-color);
-	font-weight: 500;
-	background: var(--dark-color);
-}
-
-.mgd-display-1 {
-	font-family: var(--brand-font);
-	font-size: 3.25rem;
-}
-
-.mgd-display-2 {
-	font-size: 4.25rem;
-	font-style: italic;
-	transform: scaleY(1.1);
-}
-
-.mgd-display-3 {
-	font-size: 1.5rem;
-	color: pink;
-}
-
-/*COLOR TBC*/
-.mgd-underline {
-	border-bottom: 1px solid var(--light-color);
-}
-
 /*-------------------------------------------categories/add-category/edit-category-*/
-
-.login-image-container,
-.register-image-container,
-.categories-image-container,
-.add-category-image-container {
-	height: 12rem;
-}
 
 .category-card-overlay {
 	height: 100%;
@@ -336,12 +291,6 @@ p {
 	text-align: center;
 }
 
-.login-image-container,
-.recipes-image-container,
-.add-recipe-image-container {
-	height: 12rem;
-}
-
 .recipes-image {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
@@ -368,8 +317,56 @@ p {
 	border-top: 1px solid var(--brand-color);
 }
 
-
+/*-------------------------------------------------------------------------profile-*/
 
 #profile {
 	height: 55vh;
+}
+
+/*----------------------------------------------------------------------------misc-*/
+
+.btn-main,
+.btn-main:hover {
+	color: var(--dark-color);
+	font-weight: 500;
+	background: var(--brand-color);
+}
+
+.btn-main-reverse,
+.btn-main-reverse:hover {
+	margin-right: 0.5rem;
+	color: var(--brand-color);
+	font-weight: 500;
+	background: var(--dark-color);
+}
+
+.mgd-display-1 {
+	font-family: var(--brand-font);
+	font-size: 3.25rem;
+}
+
+.mgd-display-2 {
+	font-size: 4.25rem;
+	font-style: italic;
+	transform: scaleY(1.1);
+}
+
+.mgd-display-3 {
+	font-size: 1.5rem;
+	color: pink;
+}
+
+/*COLOR TBC*/
+.mgd-underline {
+	border-bottom: 1px solid var(--light-color);
+}
+
+.page-image-container {
+	height: 12rem;
+}
+
+.login-image-container,
+.recipes-image-container,
+.add-recipe-image-container {
+	height: 12rem;
 }
