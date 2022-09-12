@@ -7,6 +7,7 @@
             <div class="col-12 col-md-9">
                 <h2>PROFILE</h2>
                 <p>HELLO! {{ session.user }} </p>
+                <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a>
             </div>
         </div>
     </div>

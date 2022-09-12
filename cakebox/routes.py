@@ -53,10 +53,48 @@ def contact():
     return render_template("contact.html")
     
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if "user" in session:
+        flash("You're already logged in!")
+        return redirect(url_for('profile'))
+
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = Users.query.filter(Users.username ==
+                                           request.form.get(
+                                            "username").lower()).all()
+
+        if existing_user:
+            request.form.get("username")
+            # ensure hashed password matches user input
+            if check_password_hash(
+                    existing_user[0].password, request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                            "profile", username=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
     
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out. See you soon!")
+    session.pop("user")
+    return redirect(url_for("index"))
+
 
 @app.route("/privacy")
 def privacy():
@@ -96,14 +134,6 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
-
-
-@app.route("/logout")
-def logout():
-    # remove user from session cookie
-    flash("You have been logged out. See you soon!")
-    session.pop("user")
-    return redirect(url_for("index"))
 
 
 @app.route("/recipes")
