@@ -1,33 +1,46 @@
 {% extends "base.html" %}
 {% block header %}
+<!--register-image-->
+<section id="register-image">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="register-image-container">
+                    <div class="register-image ">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6 hero-text">
+                                    <p class="mgd-display-1">Register</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/register-image-->
+
 <!--register-->
 <section id="register" class="my-4">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-3 p-0">
-                <div class="register-image-container">
-                    <div class="register-image"></div>
-                </div>
-            </div>
+        <div class="row" style="justify-content:center">
             <div class="col-12 col-md-6 register-col">
-                <h2 class="login-register">Register</h2>
-                <p>* Required</p>
+                  <p>Complete the form below to register for a free account.</p>
                 <form>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="user-name"
-                            placeholder="User name (at least 4 characters)*" minlength="4" required>
+                            placeholder="User name (Required)" minlength="4" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="first-name" placeholder="First name*" minlength="2"
+                        <input type="text" class="form-control" id="first-name" placeholder="First name (Required)" minlength="2"
                             required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="email-address" placeholder="Email address*"
-                            required>
+                            <!-- data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" -->
                     </div>
                     <div class="mb-3">
                         <input type="email" class="form-control" id="password"
-                            placeholder="Password (at least 8 characters)*" minlength="8" required>
+                            placeholder="Password (Required)" minlength="8" required>
                     </div>
                     <p>By clicking register, you confirm you are over 16 and you agree to our <a
                             href="{{ url_for('terms') }}">terms and conditions</a> and <a

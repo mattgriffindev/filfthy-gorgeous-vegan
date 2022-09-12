@@ -267,6 +267,7 @@ p {
 
 /*-------------------------------------------categories/add-category/edit-category-*/
 
+.register-image-container,
 .categories-image-container,
 .add-category-image-container {
 	height: 12rem;
@@ -280,6 +281,7 @@ p {
     flex-direction: column;
 }
 
+.register-image,
 .categories-image {
 	height: 100%;
 	background: url("../img/hero.webp") no-repeat center;
@@ -308,10 +310,9 @@ p {
 }
 
 .category-card-image {
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
 	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: cover;
 }
 
@@ -366,3 +367,6 @@ p {
 .recipe-card {
 	border-top: 1px solid var(--brand-color);
 }
+
+
+

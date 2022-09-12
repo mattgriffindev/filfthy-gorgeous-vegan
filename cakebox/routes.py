@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from cakebox import app, db
-from cakebox.models import Category, Recipe
+from cakebox.models import Category, Recipe, Users
 
 
 @app.route("/")
