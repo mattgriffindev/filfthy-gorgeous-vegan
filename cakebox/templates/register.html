@@ -28,18 +28,18 @@
         <div class="row" style="justify-content:center">
             <div class="col-12 col-md-6 register-col">
                   <p>Complete the form below to register for a free account.</p>
-                <form>
+                <form method="POST" action="{{ url_for('register') }}">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="user-name"
+                        <input type="text" class="form-control" name="username" id="username"
                             placeholder="User name (Required)" minlength="4" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="first-name" placeholder="First name (Required)" minlength="2"
+                        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name (Required)" minlength="2"
                             required>
                             <!-- data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" -->
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="password"
+                        <input type="password" class="form-control" name="password" id="password"
                             placeholder="Password (Required)" minlength="8" required>
                     </div>
                     <p>By clicking register, you confirm you are over 16 and you agree to our <a
