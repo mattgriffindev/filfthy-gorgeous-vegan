@@ -264,6 +264,7 @@ p {
 
 /*-------------------------------------------categories/add-category/edit-category-*/
 
+.login-image-container,
 .register-image-container,
 .categories-image-container,
 .add-category-image-container {
@@ -278,6 +279,7 @@ p {
     flex-direction: column;
 }
 
+.login-image,
 .register-image,
 .categories-image {
 	height: 100%;
@@ -334,6 +336,7 @@ p {
 	text-align: center;
 }
 
+.login-image-container,
 .recipes-image-container,
 .add-recipe-image-container {
 	height: 12rem;
