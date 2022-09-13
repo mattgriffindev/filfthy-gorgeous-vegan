@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block header %}
+<!--edit-recipe-image-->
+<section id="edit-recipe-image">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="page-image-container">
+                    <div class="edit-recipe-image">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6 hero-text">
+                                    <p class="mgd-display-1">Edit recipe</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/edit-recipe-image-->
+
+<!--edit-recipe-->
+<section id="edit-recipe">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+            <form method="POST" class="contact-form" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
+                novalidate>
+                <p>Use the form below to edit the recipe.</p>
+                <div class="mb-3">
+                    <input type="text" class="form-control validate" value="{{ recipe.recipe_name}}" name="recipe_name"
+                        id="recipe_name" placeholder="Recipe name (Required)" maxlength="50" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control validate" value="{{ recipe.recipe_time}}" name="recipe_prep"
+                        id="recipe_prep" placeholder="Prep time (Required)" maxlength="3">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control validate" value="{{ recipe.recipe_bake}}" name="recipe_bake"
+                        id="recipe_bake" placeholder="Bake time (Required)" maxlength="3">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control validate" value="{{ recipe.recipe_serves}}"
+                        name="recipe_serves" id="recipe_serves" placeholder="Serves (Required)" maxlength="3">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control validate" value="{{ recipe.recipe_difficulty}}"
+                        name="recipe_difficulty" id="recipe_difficulty" placeholder="Difficulty (Required)"
+                        maxlength="10">
+                </div>
+                <div class="mb-3">
+                    <textarea type="text" class="form-control validate" name="recipe_desc" id="recipe_desc"
+                        placeholder="Recipe description (Required)" maxlength="500" required>
+                            {{- recipe.recipe_desc -}}
+                        </textarea>
+                </div>
+                <!-- category-id -->
+
+                <select id="category_id" name="category_id" class="validate" required>
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+
+
+                <!-- submit button -->
+                <button type="submit" class="btn btn-md btn-main submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
