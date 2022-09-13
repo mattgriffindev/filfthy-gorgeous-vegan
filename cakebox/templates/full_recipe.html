@@ -30,55 +30,52 @@
                 <a class="btn btn-lg btn-primary" role="button" href="{{ url_for('add_recipe') }}">Add a recipe</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="row">
-                 
-                    <div class="col-md-6">
-                        <div class="recipe-card p-2">
+        <div class="row justify-content-center ">
 
 
-                            <h3 class="card-title">{{ recipe.recipe_name }}</h3>
-                                <h6>At a glance:</h6>
+            <div class="col-12 col-md-6">
+                <div class="recipe-card p-2">
 
-                                <table class="recipe-table my-2">
-                                    <tr>
-                                        <td>Prep</td>
-                                        <td>Bake</td>
-                                        <td>Serves</td>
-                                        <td>Difficulty</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{ recipe.recipe_prep }} mins</td>
-                                        <td>{{ recipe.recipe_bake }} mins </td>
-                                        <td>{{ recipe.recipe_serves }} people</td>
-                                        <td>{{ recipe.recipe_difficulty }}</td>
-                                    </tr>
-                                </table>
 
-                                <h6>Instructions:</h6>
+                    <h3 class="card-title">{{ recipe.recipe_name }}</h3>
+                    <h6>At a glance:</h6>
 
-                                <p>{{ recipe.recipe_desc }}</p>
+                    <table class="recipe-table my-2">
+                        <tr>
+                            <td>Prep</td>
+                            <td>Bake</td>
+                            <td>Serves</td>
+                            <td>Difficulty</td>
+                        </tr>
+                        <tr>
+                            <td>{{ recipe.recipe_prep }} mins</td>
+                            <td>{{ recipe.recipe_bake }} mins </td>
+                            <td>{{ recipe.recipe_serves }} people</td>
+                            <td>{{ recipe.recipe_difficulty }}</td>
+                        </tr>
+                    </table>
 
-                                <span>
-                                    <a class="btn btn-sm btn-success"
-                                        href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
-                                        role="button">Edit</a>
-                                    <a class="btn btn-sm btn-danger"
-                                        href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}"
-                                        role="button">Delete</a>
-                                </span>
-                            
+                    <h6>Instructions:</h6>
+
+                    <p>{{ recipe.recipe_desc }}</p>
+
+                    <span>
+                        <a class="btn btn-sm btn-success" href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
+                            role="button">Edit</a>
+                        <a class="btn btn-sm btn-danger" href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}"
+                            role="button">Delete</a>
+                    </span>
 
 
 
 
-                        </div>
-                    </div>
-                   
+
                 </div>
             </div>
+
         </div>
+    </div>
+    </div>
     </div>
 </section>
 <!--/recipes-->

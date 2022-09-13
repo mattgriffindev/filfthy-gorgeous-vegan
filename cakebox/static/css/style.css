@@ -264,14 +264,24 @@ p {
 
 .recipe-table {
 	width: 100%;
-	
 	font-size: 1rem;
 	text-align: center;
 }
 
 .recipe-card {
 	border-top: 1px solid var(--brand-color);
+	cursor: pointer;
+    position: relative;
 }
+
+.full-recipe-link {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+  }
 
 /*-------------------------------------------------------------------------profile-*/
 
@@ -297,6 +307,7 @@ p {
 	background: var(--dark-color);
 }
 
+/*------------------------------------------display-fonts-*/
 .mgd-display-1 {
 	font-family: var(--brand-font);
 	font-size: 3.25rem;
