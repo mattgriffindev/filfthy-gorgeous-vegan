@@ -164,25 +164,25 @@ p {
 
 .quick-links-image {
 	height: 100%;
-	background-size: cover;
+	background-color: var(--light-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .image2 {
-	background: url("") no-repeat center;
-	background-color: purple;
+	background: url("../img/cake_1.jpg") no-repeat center;
+	background-size: auto%;
 }
 
 .image3 {
-	background: url("") no-repeat center;
-	background-color: goldenrod;
+	background: url("../img/cake_2.jpg") no-repeat center;
+	background-size: 100%;
 }
 
 .image4 {
-	background: url("") no-repeat center;
-	background-color: darkred;
+	background: url("../img/cake_3.jpg") no-repeat center;
+	background-size: 100%;
 }
 
 .quick-links-text,
