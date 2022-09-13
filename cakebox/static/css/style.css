@@ -235,31 +235,6 @@ p {
     flex-direction: column;
 }
 
-.profile-image,
-.login-image,
-.register-image,
-.categories-image {
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
-	display: flex;
-	align-items: center;
-}
-
-.add-category-image {
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
-	display: flex;
-	align-items: center;
-}
-
-.edit-category-image {
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
-}
-
 .category-card {
 	height: 12rem;
 	margin-bottom: 1.5rem;
@@ -292,28 +267,6 @@ p {
 	
 	font-size: 1rem;
 	text-align: center;
-}
-
-.recipes-image {
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
-	display: flex;
-	align-items: center;
-}
-
-.add-recipe-image {
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
-	display: flex;
-	align-items: center;
-}
-
-.edit-recipe-image {
-	height: 100%;
-	background: url("../img/hero.webp") no-repeat center;
-	background-size: cover;
 }
 
 .recipe-card {
@@ -372,3 +325,20 @@ p {
 /*-----------------------------------------flash-messages-*/
 
 
+
+
+
+.add-category-image,
+.add-recipe-image,
+.edit-category-image,
+.edit-category-image,
+.profile-image,
+.login-image,
+.register-image,
+.categories-image {
+	height: 100%;
+	background: url("../img/hero.webp") no-repeat center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+}
