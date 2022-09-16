@@ -171,17 +171,17 @@ p {
 }
 
 .image2 {
-	background: url("../img/cake_1.jpg") no-repeat center;
+	background: url("../img/cake_1.webp") no-repeat center;
 	background-size: auto;
 }
 
 .image3 {
-	background: url("../img/cake_2.jpg") no-repeat center;
+	background: url("../img/cake_2.webp") no-repeat center;
 	background-size: 100%;
 }
 
 .image4 {
-	background: url("../img/cake_3.jpg") no-repeat center;
+	background: url("../img/cake_3.webp") no-repeat center;
 	background-size: 100%;
 }
 
