@@ -2,7 +2,7 @@ from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from cakebox import app, db
-from cakebox.models import Category, Recipe, Users
+from cakebox.models import Category, Users
 
 
 @app.route("/")
@@ -152,56 +152,56 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/recipes")
-def recipes():
-    recipes = list(Recipe.query.order_by(Recipe.id).all())
-    return render_template("recipes.html", recipes=recipes)
+# @app.route("/recipes")
+# def recipes():
+#     recipes = list(Recipe.query.order_by(Recipe.id).all())
+#     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/add_recipe", methods=["GET", "POST"])
-@login_required
-def add_recipe():
-    categories = list(Category.query.order_by(Category.category_name).all())
-    if request.method == "POST":
-        recipe = Recipe(
-            recipe_name=request.form.get("recipe_name"),
-            recipe_desc=request.form.get("recipe_desc"),
-            recipe_prep=request.form.get("recipe_prep"),
-            recipe_bake=request.form.get("recipe_bake"),
-            recipe_serves=request.form.get("recipe_serves"),
-            recipe_difficulty=request.form.get("recipe_difficulty"),
-            category_id=request.form.get("category_id")
-        )
-        db.session.add(recipe)
-        db.session.commit()
-        return redirect(url_for("recipes"))
-    return render_template("add_recipe.html", categories=categories)
+# @app.route("/add_recipe", methods=["GET", "POST"])
+# @login_required
+# def add_recipe():
+#     categories = list(Category.query.order_by(Category.category_name).all())
+#     if request.method == "POST":
+#         recipe = Recipe(
+#             recipe_name=request.form.get("recipe_name"),
+#             recipe_desc=request.form.get("recipe_desc"),
+#             recipe_prep=request.form.get("recipe_prep"),
+#             recipe_bake=request.form.get("recipe_bake"),
+#             recipe_serves=request.form.get("recipe_serves"),
+#             recipe_difficulty=request.form.get("recipe_difficulty"),
+#             category_id=request.form.get("category_id")
+#         )
+#         db.session.add(recipe)
+#         db.session.commit()
+#         return redirect(url_for("recipes"))
+#     return render_template("add_recipe.html", categories=categories)
 
 
-@app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
-@login_required
-def edit_recipe(recipe_id):
-    recipe = Recipe.query.get_or_404(recipe_id)
-    categories = list(Category.query.order_by(Category.category_name).all())
-    if request.method == "POST":
-        recipe.recipe_name=request.form.get("recipe_name"),
-        recipe.recipe_desc=request.form.get("recipe_desc"),
-        recipe.recipe_prep=request.form.get("recipe_prep"),
-        recipe.recipe_bake=request.form.get("recipe_bake"),
-        recipe.recipe_serves=request.form.get("recipe_serves"),
-        recipe.recipe_difficulty=request.form.get("recipe_difficulty"),
-        recipe.category_id=request.form.get("category_id")
-        db.session.commit()
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
+# @app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
+# @login_required
+# def edit_recipe(recipe_id):
+#     recipe = Recipe.query.get_or_404(recipe_id)
+#     categories = list(Category.query.order_by(Category.category_name).all())
+#     if request.method == "POST":
+#         recipe.recipe_name=request.form.get("recipe_name"),
+#         recipe.recipe_desc=request.form.get("recipe_desc"),
+#         recipe.recipe_prep=request.form.get("recipe_prep"),
+#         recipe.recipe_bake=request.form.get("recipe_bake"),
+#         recipe.recipe_serves=request.form.get("recipe_serves"),
+#         recipe.recipe_difficulty=request.form.get("recipe_difficulty"),
+#         recipe.category_id=request.form.get("category_id")
+#         db.session.commit()
+#     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
 
 
-@app.route("/delete_recipe/<int:recipe_id>")
-@login_required
-def delete_recipe(recipe_id):
-    recipe = Recipe.query.get_or_404(recipe_id)
-    db.session.delete(recipe)
-    db.session.commit()
-    return redirect(url_for("recipes"))
+# @app.route("/delete_recipe/<int:recipe_id>")
+# @login_required
+# def delete_recipe(recipe_id):
+#     recipe = Recipe.query.get_or_404(recipe_id)
+#     db.session.delete(recipe)
+#     db.session.commit()
+#     return redirect(url_for("recipes"))
 
 
 @app.route("/terms")
