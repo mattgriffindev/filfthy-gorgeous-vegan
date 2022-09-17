@@ -32,13 +32,14 @@
         </div>
         <div class="row justify-content-center">
 
-            {% for recipe in recipes|sort(attribute="recipe_name") %}
+        {% if recipes|length > 0 %}
+            {% for recipe in recipes %}
             <div class="col-12 col-md-6">
                 <div class="recipe-card p-2">
 
-                    <a href="{{ url_for('full_recipe', recipe_id=recipe.id) }}">
+                    <!-- <a href="{{ url_for('full_recipe', recipe_id=recipe.id) }}">
                         <span class="full-recipe-link"></span>
-                    </a>
+                    </a> -->
 
                     <h3 class="card-title">{{ recipe.recipe_name }}</h3>
 
@@ -59,7 +60,7 @@
                         </tr>
                     </table>
 
-                    <p>{{ recipe.recipe_desc }}</p>
+                    <p>{{ recipe.recipe_inst }}</p>
 
                     <span>
                         <a class="btn btn-sm btn-success" href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
@@ -75,7 +76,7 @@
                 </div>
             </div>
             {% endfor %}
-
+        {% endif %}
         </div>
     </div>
 </section>

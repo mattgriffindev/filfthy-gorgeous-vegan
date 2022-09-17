@@ -22,6 +22,13 @@
 </section>
 <!--/about-image-->
 
+{% if recipes|length > 0 %}
+    {% for recipe in recipes %}
+        {{ recipe.recipe_name }}
+        {{ recipe.recipe_inst }}
+    {% endfor %}
+{% endif %}
+
 <!--about-->
 <section id="privacy" class="my-4">
     <div class="container">
@@ -37,6 +44,7 @@
     </div>
 </section>
 <!--/about-->
+
 {% endblock %}
 
 {% block footer %}
