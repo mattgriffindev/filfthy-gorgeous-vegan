@@ -1,7 +1,8 @@
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, flash, session
+from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from cakebox import app, db
+from cakebox import app, db, mongo
 from cakebox.models import Category, Users
 
 
@@ -28,7 +29,12 @@ def about():
 
 
 @app.route("/categories")
+@login_required
 def categories():
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be an admin to manage categories of recipes!")
+        return redirect(url_for("login"))
+
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("categories.html", categories=categories)
 
@@ -71,36 +77,33 @@ def contact():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ Allows users to login into an existing account
+    and verifies username and password """
     if "user" in session:
         flash("You're already logged in!")
         return redirect(url_for('profile'))
 
     if request.method == "POST":
-        # check if username exists in db
-        existing_user = Users.query.filter(Users.username ==
-                                           request.form.get(
-                                            "username").lower()).all()
+        # check if username exists
+        existing_user = Users.query.filter(
+            Users.username == request.form.get("username").lower()).all()
 
         if existing_user:
             request.form.get("username")
-            # ensure hashed password matches user input
-            if check_password_hash(
-                    existing_user[0].password, request.form.get("password")):
+            # password check
+            if check_password_hash(existing_user[0].password, request.form.get(
+                    "password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
-                return redirect(url_for(
-                            "profile", username=session["user"]))
+                flash("Welcome {}".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session["user"]))
             else:
-                # invalid password match
-                flash("Incorrect Username and/or Password")
+                # invalid password
+                flash("Incorrect username or password")
                 return redirect(url_for("login"))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-
     return render_template("login.html")
     
 
@@ -152,56 +155,96 @@ def register():
     return render_template("register.html")
 
 
-# @app.route("/recipes")
-# def recipes():
-#     recipes = list(Recipe.query.order_by(Recipe.id).all())
+@app.route("/recipes")
+def recipes():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=recipes)
+
+
+# @app.route("/search_recipes", methods=["GET", "POST"])
+# def search_recipes():
+#     """ finds recipes from db and renders them on recipes page """
+#     query = request.form.get("query")
+#     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+#     if len(recipes) == 0:
+#         flash("Sorry, there are no results!")
+#         return redirect(url_for("recipes"))
+
 #     return render_template("recipes.html", recipes=recipes)
 
 
-# @app.route("/add_recipe", methods=["GET", "POST"])
-# @login_required
-# def add_recipe():
-#     categories = list(Category.query.order_by(Category.category_name).all())
-#     if request.method == "POST":
-#         recipe = Recipe(
-#             recipe_name=request.form.get("recipe_name"),
-#             recipe_desc=request.form.get("recipe_desc"),
-#             recipe_prep=request.form.get("recipe_prep"),
-#             recipe_bake=request.form.get("recipe_bake"),
-#             recipe_serves=request.form.get("recipe_serves"),
-#             recipe_difficulty=request.form.get("recipe_difficulty"),
-#             category_id=request.form.get("category_id")
-#         )
-#         db.session.add(recipe)
-#         db.session.commit()
-#         return redirect(url_for("recipes"))
-#     return render_template("add_recipe.html", categories=categories)
+@app.route("/add_recipe", methods=["GET", "POST"])
+@login_required
+def add_recipe():
+    if "user" not in session:
+        flash("You must be logged in to add a recipe")
+        return redirect(url_for("login"))
+
+    if request.method == "POST":
+
+        recipe = {
+            "category_id": request.form.get("category_id"),
+            "recipe_name": request.form.get("recipe_name"),
+            "image_url": request.form.get("image_url"),
+            "created_by": session["user"],
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_inst": request.form.get("recipe_inst"),
+            "recipe_prep": request.form.get("recipe_prep"),
+            "recipe_bake": request.form.get("recipe_bake"),
+            "recipe_serves": request.form.get("recipe_serves")
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Thank you for sharing your recipe!")
+        return redirect(url_for("recipes"))
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("add_recipe.html", categories=categories)
 
 
-# @app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
-# @login_required
-# def edit_recipe(recipe_id):
-#     recipe = Recipe.query.get_or_404(recipe_id)
-#     categories = list(Category.query.order_by(Category.category_name).all())
-#     if request.method == "POST":
-#         recipe.recipe_name=request.form.get("recipe_name"),
-#         recipe.recipe_desc=request.form.get("recipe_desc"),
-#         recipe.recipe_prep=request.form.get("recipe_prep"),
-#         recipe.recipe_bake=request.form.get("recipe_bake"),
-#         recipe.recipe_serves=request.form.get("recipe_serves"),
-#         recipe.recipe_difficulty=request.form.get("recipe_difficulty"),
-#         recipe.category_id=request.form.get("category_id")
-#         db.session.commit()
-#     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+@login_required
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    if "user" not in session or session["user"] != recipe["created_by"]:
+        flash("You can edit only your own recipes and must be logged in!")
+        return redirect(url_for("recipes"))
+
+    if request.method == "POST":
+        request.form.get("recipe_name")
+        submit = {
+            "category_id": request.form.get("category_id"),
+            "recipe_name": request.form.get("recipe_name"),
+            "image_url": request.form.get("image_url"),
+            "created_by": session["user"],
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_inst": request.form.get("recipe_inst"),
+            "recipe_prep": request.form.get("recipe_prep"),
+            "recipe_bake": request.form.get("recipe_bake"),
+            "recipe_serves": request.form.get("recipe_serves")
+        }
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+                                    {"$set": submit})
+        flash("Recipe successfully updated!")
+        return redirect(url_for("recipes"))
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("edit_recipe.html", recipe=recipe,
+                           categories=categories)
 
 
-# @app.route("/delete_recipe/<int:recipe_id>")
-# @login_required
-# def delete_recipe(recipe_id):
-#     recipe = Recipe.query.get_or_404(recipe_id)
-#     db.session.delete(recipe)
-#     db.session.commit()
-#     return redirect(url_for("recipes"))
+@app.route("/delete_recipe/<recipe_id>")
+@login_required
+def delete_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    if "user" not in session or session["user"] != recipe["created_by"]:
+        flash("You must be logged in to edit your own recipes!")
+        return redirect(url_for("recipes"))
+
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("recipes"))
 
 
 @app.route("/terms")
@@ -209,12 +252,20 @@ def terms():
     return render_template("terms.html")
 
 
-@app.route("/profile")
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
-    return render_template("profile.html")
+    if "user" in session:
+        recipe_list = mongo.db.recipes.find(
+            {"created_by": {'$eq': session['user']}})
+        categories = list(
+                          Category.query.order_by(
+                            Category.category_name).all())
+        return render_template("profile.html", username=session["user"],
+                               recipe_list=recipe_list, categories=categories)
+    return redirect(url_for("login"))
 
 
-@app.route("/recipe/full_recipe/<int:recipe_id>")
-def full_recipe(recipe_id):
-    recipe = Recipe.query.get_or_404(recipe_id)
-    return render_template("full_recipe.html", recipe=recipe)
+# @app.route("/recipe/full_recipe/<int:recipe_id>")
+# def full_recipe(recipe_id):
+#     recipe = Recipe.query.get_or_404(recipe_id)
+#     return render_template("full_recipe.html", recipe=recipe)
