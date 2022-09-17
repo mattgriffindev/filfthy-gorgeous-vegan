@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
-            <form method="POST" class="contact-form" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
+            <form method="POST" class="contact-form" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
                 novalidate>
                 <p>Use the form below to edit the recipe.</p>
                 <div class="mb-3">
@@ -35,7 +35,7 @@
                         id="recipe_name" placeholder="Recipe name (Required)" maxlength="50" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control validate" value="{{ recipe.recipe_time}}" name="recipe_prep"
+                    <input type="text" class="form-control validate" value="{{ recipe.recipe_prep}}" name="recipe_prep"
                         id="recipe_prep" placeholder="Prep time (Required)" maxlength="3">
                 </div>
                 <div class="mb-3">
@@ -62,7 +62,11 @@
                 <select id="category_id" name="category_id" class="validate" required>
                     <option value="" disabled selected>Choose Category</option>
                     {% for category in categories %}
-                    <option value="{{ category.id }}">{{ category.category_name }}</option>
+                        {% if category.id == recipe.category_id | int %}
+                            <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                            <option value="{{ category.id }}">{{ category.category_name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
 
