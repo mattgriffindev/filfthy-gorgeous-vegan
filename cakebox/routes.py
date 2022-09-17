@@ -263,9 +263,3 @@ def profile():
         return render_template("profile.html", username=session["user"],
                                recipe_list=recipe_list, categories=categories)
     return redirect(url_for("login"))
-
-
-# @app.route("/recipe/full_recipe/<int:recipe_id>")
-# def full_recipe(recipe_id):
-#     recipe = Recipe.query.get_or_404(recipe_id)
-#     return render_template("full_recipe.html", recipe=recipe)
