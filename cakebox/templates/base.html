@@ -38,8 +38,9 @@
                     <span class="navbar-text d-none d-lg-block ms-2">
                         {% if session.user %}
                         <a class="btn-main btn btn-lg" href="{{ url_for('profile', user_name=session['user']) }}" role="button">Profile</a>
+                        <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a>
                         {% if session.user|lower == "admin"|lower %}
-                        <a href="{{ url_for('categories') }}">Manage Categories</a>
+                        <!-- <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a> -->
                         {% endif %}
                         {% else %}
                         <a class="btn-main-reverse btn btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
