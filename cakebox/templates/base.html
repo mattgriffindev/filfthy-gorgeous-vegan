@@ -17,14 +17,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 
     <script src="https://kit.fontawesome.com/8418939052.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("VRNsXLE_yLoioFtsD");
+        })();
+    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" async></script>
-	<script>
-		(function () {
-			emailjs.init("jg53fM6y9nHAaBhsy");
-		})();
-	</script>
-    
+
     <title>The Sweet Vegan</title>
 </head>
 
@@ -44,7 +45,8 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <span class="navbar-text d-none d-lg-block ms-2">
                         {% if session.user %}
-                        <a class="btn-main btn btn-lg" href="{{ url_for('profile', user_name=session['user']) }}" role="button">Profile</a>
+                        <a class="btn-main btn btn-lg" href="{{ url_for('profile', user_name=session['user']) }}"
+                            role="button">Profile</a>
                         <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a>
                         {% if session.user|lower == "admin"|lower %}
                         <!-- <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a> -->
@@ -63,16 +65,16 @@
     <div>
         <!-- flash-messages -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="container flash-container">
-                        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
-                            {{ message }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="container flash-container">
+            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </div>
 
