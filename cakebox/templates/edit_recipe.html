@@ -29,7 +29,7 @@
             <div class="col-12 col-md-6">
             <form method="POST" class="contact-form" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
                 novalidate>
-                <p>Use the form below to edit the recipe.</p>
+                <h5 class="mb-3">Use the form below to edit the recipe.</h5>
                 <div class="mb-3">
                     <input type="text" class="form-control validate" value="{{ recipe.recipe_name}}" name="recipe_name"
                         id="recipe_name" placeholder="Recipe name (Required)" maxlength="50" required>
