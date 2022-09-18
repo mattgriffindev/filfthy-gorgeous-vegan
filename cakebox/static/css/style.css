@@ -3,6 +3,7 @@
 
 :root {
 	--brand-color: #E4AE0B;
+	--accent-color: #936B6A;
 	--light-color: #F2EBEE;
 	--mid-color: #0D0D0D;
 	--dark-color: #0D0000;
@@ -258,7 +259,7 @@ p {
 /*--------------------------------------------------recipes/add-recipe/edit-recipe-*/
 
 #recipes h6 {
-	color: rgb(147, 107, 106);
+	color: var(--accent-color);
 	font-size: large;
 }
 
@@ -269,9 +270,20 @@ p {
 }
 
 .recipe-card {
-	border-top: 1px solid var(--brand-color);
+	border: 1px solid var(--accent-color);
 	cursor: pointer;
     position: relative;
+}
+
+.recipe-card-image-container {
+	width: 100%;
+	height: 200px;
+}
+
+.recipe-card-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .full-recipe-link {
@@ -382,3 +394,4 @@ p {
 	display: flex;
 	align-items: center;
 }
+
