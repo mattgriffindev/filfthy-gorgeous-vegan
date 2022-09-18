@@ -31,10 +31,6 @@ def about():
 @app.route("/categories")
 @login_required
 def categories():
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be an admin to manage categories of recipes!")
-        return redirect(url_for("login"))
-
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("categories.html", categories=categories)
 
