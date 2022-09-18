@@ -28,10 +28,10 @@
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-9">
                 <p>Hello, {{ session.user }}. Are you feeling peckish?</p>
-                <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a>
+                <p>Below are your recipes:</p>
                 {% if recipe_list %}
                     {% for recipe in recipe_list %}
-                        {{ recipe.recipe_name }}
+                        <h4>{{ recipe.recipe_name }}</h4>
                     {% endfor %}
                 {% endif %}
             </div>
