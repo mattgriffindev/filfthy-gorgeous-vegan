@@ -31,26 +31,19 @@
             </div>
         </div>
         <div class="row justify-content-center g-3">
-
         {% if recipes|length > 0 %}
             {% for recipe in recipes %}
             <div class="col-12 col-md-4">
                 <div class="recipe-card p-2">
-
                     <div class="recipe-card-image-container">
-                      
                         {% if recipe.image_url %}
                             <img src="{{ recipe.image_url }}" alt="Image of recipe" class="recipe-card-image">
                         {% else %}
                             <img src="{{ url_for('static', filename='/img/cake_1.webp') }}" alt="Image of recipe" class="recipe-card-image">
                         {% endif %}
-                       
                     </div>
-                    
-
                     <h3 class="card-title mt-2">{{ recipe.recipe_name }}</h3>
-
-                    <h6>At a glance:</h6>
+                    <p>Created By: {{ recipe.created_by }}</p>
 
                     <table class="recipe-table my-2">
                         <tr>
@@ -66,7 +59,6 @@
                             <td>{{ recipe.recipe_difficulty }}</td>
                         </tr>
                     </table>
-                
                     <span>
                     {% if session.user|lower == recipe.created_by|lower or session.user|lower == 'admin' %}
                         <a class="btn btn-sm btn-success" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
@@ -75,11 +67,6 @@
                             role="button">Delete</a>
                     {% endif %}
                     </span>
-
-
-
-
-
                 </div>
             </div>
             {% endfor %}
