@@ -187,7 +187,8 @@ def add_recipe():
             "recipe_inst": request.form.get("recipe_inst"),
             "recipe_prep": request.form.get("recipe_prep"),
             "recipe_bake": request.form.get("recipe_bake"),
-            "recipe_serves": request.form.get("recipe_serves")
+            "recipe_serves": request.form.get("recipe_serves"),
+            "recipe_difficulty": request.form.get("recipe_difficulty")
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Thank you for sharing your recipe!")
@@ -202,27 +203,31 @@ def add_recipe():
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
-    if "user" not in session or session["user"] != recipe["created_by"]:
-        flash("You can edit only your own recipes and must be logged in!")
-        return redirect(url_for("recipes"))
+    if "user" in session:
+        if (session.get("user") == "admin" or
+                session.get("user") == recipe["created_by"]):
 
-    if request.method == "POST":
-        request.form.get("recipe_name")
-        submit = {
-            "category_id": request.form.get("category_id"),
-            "recipe_name": request.form.get("recipe_name"),
-            "image_url": request.form.get("image_url"),
-            "created_by": session["user"],
-            "recipe_ingredients": request.form.get("recipe_ingredients"),
-            "recipe_inst": request.form.get("recipe_inst"),
-            "recipe_prep": request.form.get("recipe_prep"),
-            "recipe_bake": request.form.get("recipe_bake"),
-            "recipe_serves": request.form.get("recipe_serves")
-        }
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
-                                    {"$set": submit})
-        flash("Recipe successfully updated!")
-        return redirect(url_for("recipes"))
+            if request.method == "POST":
+                request.form.get("recipe_name")
+                submit = {
+                    "category_id": request.form.get("category_id"),
+                    "recipe_name": request.form.get("recipe_name"),
+                    "image_url": request.form.get("image_url"),
+                    "created_by": session["user"],
+                    "recipe_ingredients": request.form.get("recipe_ingredients"),
+                    "recipe_inst": request.form.get("recipe_inst"),
+                    "recipe_prep": request.form.get("recipe_prep"),
+                    "recipe_bake": request.form.get("recipe_bake"),
+                    "recipe_serves": request.form.get("recipe_serves"),
+                    "recipe_difficulty": request.form.get("recipe_difficulty")
+                }
+                mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+                                            {"$set": submit})
+                flash("Recipe successfully updated!")
+                return redirect(url_for("recipes"))
+    else:
+        flash("You are not authorised to edit this recipe")
+        return redirect("recipes")
 
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("edit_recipe.html", recipe=recipe,
@@ -241,6 +246,12 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("recipes"))
+
+
+@app.route("/recipe/full_recipe/<recipe_id>")
+def full_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("full_recipe.html", recipe=recipe)
 
 
 @app.route("/terms")
