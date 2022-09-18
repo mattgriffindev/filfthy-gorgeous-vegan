@@ -25,7 +25,7 @@
 <!--edit-recipe-->
 <section id="edit-recipe">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 col-md-6">
             <form method="POST" class="contact-form" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
                 novalidate>
@@ -34,23 +34,43 @@
                     <input type="text" class="form-control validate" value="{{ recipe.recipe_name}}" name="recipe_name"
                         id="recipe_name" placeholder="Recipe name (Required)" maxlength="50" required>
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control validate" value="{{ recipe.recipe_prep}}" name="recipe_prep"
-                        id="recipe_prep" placeholder="Prep time (Required)" maxlength="3">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <input type="number" class="form-control validate" value="{{ recipe.recipe_prep}}" name="recipe_prep"
+                                id="recipe_prep" placeholder="Prep time (Required)" min="1" max="60" step="1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <input type="number" class="form-control validate" value="{{ recipe.recipe_bake}}" name="recipe_bake"
+                                id="recipe_bake" placeholder="Bake time (Required)" min="1" max="60" step="1">
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control validate" value="{{ recipe.recipe_bake}}" name="recipe_bake"
-                        id="recipe_bake" placeholder="Bake time (Required)" maxlength="3">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <input type="number" class="form-control validate" value="{{ recipe.recipe_serves}}"
+                                name="recipe_serves" id="recipe_serves" placeholder="Serves (Required)" min="1" max="10" step="1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <select class="form-select" name="recipe_difficulty" id="recipe_difficulty" aria-label="Default select example">
+                                <option value="" disabled selected>Select Difficulty</option>
+                                <option value="Easy">Easy</option>
+                                <option value="A little effort">A little effort</option>
+                                <option value="A challenge">A challenge</option>
+                                <option value="Ambitious">Ambitious</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control validate" value="{{ recipe.recipe_serves}}"
-                        name="recipe_serves" id="recipe_serves" placeholder="Serves (Required)" maxlength="3">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control validate" value="{{ recipe.recipe_difficulty}}"
-                        name="recipe_difficulty" id="recipe_difficulty" placeholder="Difficulty (Required)"
-                        maxlength="10">
-                </div>
+                
+                
                 <div class="mb-3">
                     <textarea type="text" class="form-control validate" name="recipe_desc" id="recipe_desc"
                         placeholder="Recipe description (Required)" maxlength="500" required>
