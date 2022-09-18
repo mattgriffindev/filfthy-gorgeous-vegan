@@ -289,6 +289,28 @@ p {
 	height: 55vh;
 }
 
+/*-------------------------------------------------------------------------contact-*/
+
+.contact-info td {
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+	font-size: 1.375rem;
+}
+
+.contact-info a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.contact-info a:hover {
+	color: var(--secondary-text-color);
+	font-weight: 600;
+}
+
+.contact-info .icon {
+	color: var(--brand-color);
+}
+
 /*----------------------------------------------------------------------------misc-*/
 /*------------------------------------------------buttons-*/
 
