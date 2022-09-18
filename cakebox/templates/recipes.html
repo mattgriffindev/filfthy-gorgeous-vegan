@@ -45,6 +45,10 @@
                     <h3 class="card-title mt-2">{{ recipe.recipe_name }}</h3>
                     <p>Created By: {{ recipe.created_by }}</p>
 
+                    <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">
+                        <span class="full-recipe-link"></span>
+                    </a>
+
                     <table class="recipe-table my-2">
                         <tr>
                             <td>Prep</td>
