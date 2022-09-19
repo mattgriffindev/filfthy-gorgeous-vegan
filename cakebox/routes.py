@@ -1,9 +1,19 @@
+import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from cakebox import app, db, mongo
 from cakebox.models import Category, Users
+
+
+# retrieve hidden env variable for cloudinary API
+cloudinary.config(cloud_name=os.getenv('CLOUD_NAME'),
+                  api_key=os.getenv('API_KEY'),
+                  api_secret=os.getenv('API_SECRET'))
 
 
 @app.route("/")
