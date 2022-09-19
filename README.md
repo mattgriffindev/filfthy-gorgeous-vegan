@@ -69,7 +69,27 @@ The site is designed to be responsive on all devices.
 
 **Frameworks, Libraries and Programes Used**
 
+- [Heroku](https://devcenter.heroku.com/) is where the live site is deployed.
+
 - [Bootstrap v5](https://getbootstrap.com/docs/5.0/getting-started/introduction/ "Bootstrap v5") was used to assist with the responsiveness and styling of the website.
+
+- [Cloudinary API](https://cloudinary.com/) was used to enable users to upload images for their recipes whilst keeping the App safe and secure
+
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) was used to handle the templating for the site.
+
+- [Postgres](https://www.postgresql.org/) was the relational database used to store user registration, login and authentication. Postgres was also used to store the Categories.
+
+- [MongoDB](https://www.mongodb.com/) was the nonrelational database used to store less structured data such as the recipes. MongoDB is where we host our NoSQL database.
+
+- [Flask-PyMongo](https://pypi.org/project/Flask-PyMongo/) provides MongoDB support for Flask applications.
+
+- [pip](https://pip.pypa.io/en/stable/) is the package installer for Python, allowing us to install the packages we need for this site.
+
+- [dnspython](https://www.dnspython.org/) is a DNS toolkit for python.
+
+- [Werkzeug](https://wsgi.readthedocs.io/en/latest/what.html) is a Web Server Gateway Interface web application library.
+
+- [Jinja](https://www.palletsprojects.com/p/jinja/) a templating engine for Python, used to write Flask and other templating services.
 
 - [Google Fonts](https://fonts.google.com/ "Google Fonts") was used to import the Bubblegum Sans and Nunito fonts into the style.css file, which are used throughout the website.
 
@@ -131,6 +151,20 @@ No bugs have been identified.
 
 ## 5. Deployment
 
+**Deployment to Heroku**
+
+ Heroku was used to deploy this project. The steps used for deployment to Heroku are as follows:
+
+  1. Sign up and log into heroku.
+  2. On the top right hand corner of the heroku website, click new, then create new app.
+  3. Name the app, select region, and then click the create app button.
+  4. Install postgres under the resources tab.
+  5. Insert relevant config vars into heroku, such as IP, PORT SECRET_KEY, DATABAS_URL.
+  6. You can click connect to github but this project used the CLI method.
+  7. Log into heroku via CLI.
+  8. Create a git remote for heroku.
+  9. Push all changes to the staging area.
+  10. Push to heroku for your app to run and function.
 
 ## 6. Credits
 
