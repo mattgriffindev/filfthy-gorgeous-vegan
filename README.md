@@ -25,7 +25,7 @@ The site consists of X pages.
 
 The color scheme is based on shades of red (copper rose) and orange (gamboge) with shades of grey.
 
-![Color palette](static/img/palette.png)
+![Color palette](cakebox/static/img/palette.png)
 
 **Typography**
 
@@ -153,7 +153,7 @@ All content was written by the developer
 **Media**
 
 All images were used under Creative Commons where available, or under the provisions for research and private study in section 29 of the Copyright, Designs and Patents Act 1988.
-
+s
 All images were converted to .webp using [online-convert](https://www.online-convert.com/ "online-convert").
 
 **Acknowledgements**
