@@ -295,6 +295,19 @@ p {
 	z-index: 1;
   }
 
+/*---------------------------------------------------------------------full-recipe-*/  
+
+.full-recipe-image-container {
+	width: 100%;
+	height: 50vh;
+}
+
+.full-recipe-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 /*-------------------------------------------------------------------------profile-*/
 
 #profile {
