@@ -172,17 +172,17 @@ p {
 
 .image2 {
 	background: url("../img/cake_1.webp") no-repeat center;
-	background-size: auto;
+	background-size: cover;
 }
 
 .image3 {
 	background: url("../img/cake_2.webp") no-repeat center;
-	background-size: 100%;
+	background-size: cover;
 }
 
 .image4 {
 	background: url("../img/cake_3.webp") no-repeat center;
-	background-size: 100%;
+	background-size: cover;
 }
 
 .quick-links-text,
@@ -403,19 +403,19 @@ p {
 
 /*-------------------------------------------------------------------media-queries-*/
 
-/* @media screen and (max-width: 1024px) */
-
+@media screen and (max-width: 1024px) {
+	.mgd-display-1 {
+		margin-bottom: 1.5rem;
+		line-height: 1;
+	}
+	.mgd-display-3 {
+		margin-top: 0;
+	}
+}
 
 /* @media screen and (max-width: 768px) */
 
-/* @media screen and (max-width: 425px) */
-
-/* @media screen and (max-width: 375px) */
-
-@media screen and (max-width: 320px) {
-	html {
-		font-size: 14.5px;
-	}
+@media screen and (max-width: 425px) {
 	.footer-left {
 		display: flex;
 		justify-content: center;
@@ -424,20 +424,28 @@ p {
 	.footer-right {
 		text-align: center;
 	}
-	.features-image-container {
-		height: 12rem;
+	.contact-info {
+		margin-top: 3rem;
 	}
-	.mgd-display-1,
+	.full-recipe-right {
+		padding-top: 1rem;
+	}
+}
+
+@media screen and (max-width: 375px) {
 	.mgd-display-2 {
 		line-height: 1;
 	}
 	.mgd-display-3 {
 		margin-top: 1rem;
 	}
-	.contact-info {
-		margin-top: 3rem;
+}
+
+@media screen and (max-width: 320px) {
+	html {
+		font-size: 14.5px;
 	}
-	.full-recipe-right {
-		padding-top: 1rem;
+	.features-image-container {
+		height: 12rem;
 	}
 }
