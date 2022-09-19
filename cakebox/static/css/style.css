@@ -10,8 +10,8 @@
 	--white: #FFFFFF;
 	--heart: #ffb3be;
 
-	--brand-font: 'Poiret One';
-	--primary-font: 'Didact Gothic';
+	--brand-font: 'Poiret One', cursive;
+	--primary-font: 'Didact Gothic', sans-serif;
 	--signature: 'M PLUS 1 Code', cursive;
 }
 
