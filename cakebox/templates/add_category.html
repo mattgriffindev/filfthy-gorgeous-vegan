@@ -22,6 +22,18 @@
 </section>
 <!--/add-category-image-->
 
+<!--breadcrumb-->
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('categories') }}">Categories</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add category</li>
+        </ol>
+    </nav>
+</div>
+<!--/breadcrumb-->
+
 <!--add-category-->
 <section id="add-category">
     <div class="container">

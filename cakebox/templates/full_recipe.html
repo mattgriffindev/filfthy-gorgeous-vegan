@@ -22,6 +22,18 @@
 </section>
 <!--/full-recipe-image-->
 
+<!--breadcrumb-->
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('recipes') }}">Recipes</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ recipe.recipe_name }}</a></li>
+        </ol>
+    </nav>
+</div>
+<!--/breadcrumb-->
+
 <!--/full-recipe-->
 <section id="recipes">
     <div class="container">

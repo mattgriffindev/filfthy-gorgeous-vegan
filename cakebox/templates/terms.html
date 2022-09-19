@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-12 p-0">
                 <div class="page-image-container">
-                    <div class="terms-image">
-                        <div class="heading-fluid">
+                    <div class="heading-image">
+                        <div class="container-fluid">
                             <div class="row">
                                 <div class="col-6 hero-text">
                                     <p class="mgd-display-1">Terms & conditions</p>
@@ -21,6 +21,17 @@
     </div>
 </section>
 <!--/terms-image-->
+
+<!--breadcrumb-->
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Terms & conditions</a></li>
+        </ol>
+    </nav>
+</div>
+<!--/breadcrumb-->
 
 <!--terms-->
 <section id="terms" class="my-4">
