@@ -25,6 +25,7 @@ html {
 }
 
 p {
+	font-size: 1.1rem;
 	font-family: var(--primary-font);
 }
 
@@ -107,10 +108,8 @@ p {
 	font-size: 1rem;
 }
 
-
-.footer-left {
-	display: flex;
-	align-items: center;
+.footer-right {
+	text-align: right;
 }
 
 .social-media-icon {
@@ -395,8 +394,50 @@ p {
 	padding-right: 0;
 }
 
+/*---------------------------------------------breadcrumb-*/
 
 .breadcrumb {
-	margin-top: 0.25rem;
+	margin-top: 0.75rem;
 	margin-bottom: 0;
+}
+
+/*-------------------------------------------------------------------media-queries-*/
+
+/* @media screen and (max-width: 1024px) */
+
+
+/* @media screen and (max-width: 768px) */
+
+/* @media screen and (max-width: 425px) */
+
+/* @media screen and (max-width: 375px) */
+
+@media screen and (max-width: 320px) {
+	html {
+		font-size: 14.5px;
+	}
+	.footer-left {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+	.footer-right {
+		text-align: center;
+	}
+	.features-image-container {
+		height: 12rem;
+	}
+	.mgd-display-1,
+	.mgd-display-2 {
+		line-height: 1;
+	}
+	.mgd-display-3 {
+		margin-top: 1rem;
+	}
+	.contact-info {
+		margin-top: 3rem;
+	}
+	.full-recipe-right {
+		padding-top: 1rem;
+	}
 }
