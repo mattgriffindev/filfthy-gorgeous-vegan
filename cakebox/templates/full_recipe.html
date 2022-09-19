@@ -25,46 +25,41 @@
 <!--/full-recipe-->
 <section id="recipes">
     <div class="container">
-        <div class="row justify-content-center ">
-
-            <div class="col-12 col-md-8">
-                <div class="recipe-card p-2">
-
-
-                    <div class="recipe-card-image-container">
-                        {% if recipe.image_url %}
-                        <img src="{{ recipe.image_url }}" alt="Image of recipe" class="recipe-card-image">
-                        {% else %}
-                        <img src="{{ url_for('static', filename='/img/cake_1.webp') }}" alt="Image of recipe"
-                            class="recipe-card-image">
-                        {% endif %}
-                    </div>
-                    <h3 class="card-title mt-2">{{ recipe.recipe_name }}</h3>
-                    <p>Created By: {{ recipe.created_by }}</p>
-
-                    <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">
-                        <span class="full-recipe-link"></span>
-                    </a>
-
-                    <table class="recipe-table my-2">
-                        <tr>
-                            <td>Prep</td>
-                            <td>Bake</td>
-                            <td>Serves</td>
-                            <td>Difficulty</td>
-                        </tr>
-                        <tr>
-                            <td>{{ recipe.recipe_prep }} mins</td>
-                            <td>{{ recipe.recipe_bake }} mins </td>
-                            <td>{{ recipe.recipe_serves }} people</td>
-                            <td>{{ recipe.recipe_difficulty }}</td>
-                        </tr>
-                    </table>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-6">
+                <div class="full-recipe-image-container">
+                    {% if recipe.image_url %}
+                    <img src="{{ recipe.image_url }}" alt="Image of recipe" class="full-recipe-image">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='/img/cake_1.webp') }}" alt="Image of recipe"
+                        class="full-recipe-image">
+                    {% endif %}
                 </div>
-       
+            </div>
+            <div class="col-12 col-md-6">
+                <h5>At a  glance:</h5>
+                <table class="recipe-table my-2">
+                    <tr>
+                        <td>Prep</td>
+                        <td>Bake</td>
+                        <td>Serves</td>
+                        <td>Difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>{{ recipe.recipe_prep }} mins</td>
+                        <td>{{ recipe.recipe_bake }} mins </td>
+                        <td>{{ recipe.recipe_serves }} people</td>
+                        <td>{{ recipe.recipe_difficulty }}</td>
+                    </tr>
+                </table>
+                <h5>Ingredients:</h5>
+                <p>{{ recipe.recipe_ingredients }}</p>
+                <h5>Instructions:</h5>
+                <p>{{ recipe.recipe_inst }}</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 <!--/full-recipe-->
 {% endblock %}
 
