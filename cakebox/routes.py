@@ -10,12 +10,6 @@ from cakebox import app, db, mongo
 from cakebox.models import Category, Users
 
 
-# retrieve hidden env variable for cloudinary API
-cloudinary.config(cloud_name=os.getenv('CLOUD_NAME'),
-                  api_key=os.getenv('API_KEY'),
-                  api_secret=os.getenv('API_SECRET'))
-
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -175,18 +169,6 @@ def recipes():
                            recipes=recipes, categories=categories)
 
 
-# @app.route("/search_recipes", methods=["GET", "POST"])
-# def search_recipes():
-#     """ finds recipes from db and renders them on recipes page """
-#     query = request.form.get("query")
-#     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-#     if len(recipes) == 0:
-#         flash("Sorry, there are no results!")
-#         return redirect(url_for("recipes"))
-
-#     return render_template("recipes.html", recipes=recipes)
-
-
 @app.route("/add_recipe", methods=["GET", "POST"])
 @login_required
 def add_recipe():
@@ -195,9 +177,6 @@ def add_recipe():
         return redirect(url_for("login"))
 
     if request.method == "POST":
-        image = request.files["image_url"]
-        image_upload = cloudinary.uploader.upload(image,
-                                                  upload_preset="dti5ehfg2")
 
         recipe = {
             "category_id": request.form.get("category_id"),
