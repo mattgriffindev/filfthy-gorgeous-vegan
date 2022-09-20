@@ -310,6 +310,11 @@ li {
 	z-index: 1;
   }
 
+  .full-recipe-button {
+	position: relative;
+	z-index: 99;
+}
+
 /*---------------------------------------------------------------------full-recipe-*/  
 
 .full-recipe-image-container {
