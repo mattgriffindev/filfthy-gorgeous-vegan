@@ -49,7 +49,21 @@ The site includes two email address hyperlinks that will automatically open a us
 
 **Wireframes**
 
-Wireframes for desktop, tablet and mobile view were created using [Balsamiq](https://balsamiq.com/wireframes/ "Balsamiq").
+Wireframes for desktop and mobile views were created using [Balsamiq](https://balsamiq.com/wireframes/ "Balsamiq").
+
+[View the desktop and mobile wireframes here](docs/wireframes/ "Wireframes")
+
+Wireframes were created for desktop and mobile views only. It was considered that this would be sufficient to inform the layout of the tablet view.
+
+Similarly, wireframes were created for the homepage, recipes page, and full recipe page only. It was considered that this would be sufficient to inform the design of other pages.
+
+**Database scheme**
+
+PostgreSQL manages the data for the recipe categories and users.
+
+MongoDB manages the data for the recipes.
+
+![Database scheme](cakebox/static/img/db-schema.png)
 
 ## **2. Features**
 
