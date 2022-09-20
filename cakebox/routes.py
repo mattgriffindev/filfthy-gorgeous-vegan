@@ -1,7 +1,4 @@
 import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from bson.objectid import ObjectId
