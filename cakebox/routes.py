@@ -164,7 +164,15 @@ def register():
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    for recipe in recipes:
+        category = Category.query.filter(
+            Category.id == recipe['category_id']).first()
+        if category:
+            recipe['category_name'] = category.category_name
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("recipes.html",
+                           recipes=recipes, categories=categories)
 
 
 # @app.route("/search_recipes", methods=["GET", "POST"])
