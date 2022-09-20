@@ -41,7 +41,7 @@ li {
 .navbar-brand:hover {
 	color: var(--dark-color);
 	font-family: var(--brand-font);
-	font-size: 2.2rem;
+	font-size: 3rem;
 }
 
 .navbar-toggler {
@@ -437,6 +437,10 @@ li {
 /* @media screen and (max-width: 768px) */
 
 @media screen and (max-width: 425px) {
+	.navbar-brand,
+	.navbar-brand:hover {
+		font-size: 2rem;
+	}
 	.quick-links-col-1,
 	.quick-links-col-2,
 	.quick-links-col-3 {
