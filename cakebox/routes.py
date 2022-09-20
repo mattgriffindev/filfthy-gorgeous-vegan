@@ -195,6 +195,9 @@ def add_recipe():
         return redirect(url_for("login"))
 
     if request.method == "POST":
+        image = request.files["image_url"]
+        image_upload = cloudinary.uploader.upload(image,
+                                                  upload_preset="dti5ehfg2")
 
         recipe = {
             "category_id": request.form.get("category_id"),
