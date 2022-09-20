@@ -24,7 +24,8 @@ html {
 	font-size: 16px;
 }
 
-p {
+p,
+li {
 	font-size: 1.1rem;
 	font-family: var(--primary-font);
 }
@@ -160,6 +161,21 @@ p {
 .quick-links-image-container {
 	height: 12rem;
 	width: auto;
+}
+
+.quick-links-col-1 {
+	padding-left: 0;
+	padding-right: 0.25rem;
+}
+
+.quick-links-col-2 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.quick-links-col-3 {
+	padding-left: 0.25rem;
+	padding-right: 0;
 }
 
 .quick-links-image {
@@ -416,6 +432,12 @@ p {
 /* @media screen and (max-width: 768px) */
 
 @media screen and (max-width: 425px) {
+	.quick-links-col-1,
+	.quick-links-col-2,
+	.quick-links-col-3 {
+		padding-left: 0;
+		padding-right: 0;
+	}
 	.footer-left {
 		display: flex;
 		justify-content: center;
