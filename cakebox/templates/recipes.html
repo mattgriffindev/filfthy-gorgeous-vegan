@@ -44,7 +44,7 @@
         <div class="row justify-content-center g-3">
         {% if recipes|length > 0 %}
             {% for recipe in recipes %}
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="recipe-card p-2">
                     <div class="recipe-card-image-container">
                         {% if recipe.image_url %}
@@ -54,14 +54,17 @@
                         {% endif %}
                     </div>
                     <h3 class="card-title mt-2">{{ recipe.recipe_name }}</h3>
-                    <p>Created By: {{ recipe.created_by }}</p>
+                 
+                    <p class="fst-italic">{{ recipe.category_name }}</p>
+                 
+                    <p>Added by: {{ recipe.created_by }}</p>
 
                     <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">
                         <span class="full-recipe-link"></span>
                     </a>
 
                     <table class="recipe-table my-2">
-                        <tr>
+                        <tr class="bold">
                             <td>Prep</td>
                             <td>Bake</td>
                             <td>Serves</td>
