@@ -471,3 +471,8 @@ li {
 		height: 12rem;
 	}
 }
+
+
+.bold td {
+	font-weight: 600;
+}
