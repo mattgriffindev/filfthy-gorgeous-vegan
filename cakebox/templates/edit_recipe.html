@@ -91,6 +91,11 @@
                             {{- recipe.recipe_inst -}}
                         </textarea>
                     </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control validate" name="image_url" id="image_url"
+                            placeholder="Image URL (Required)" required>
+                            {{- recipe.image_url -}}
+                    </div>
                     <!-- category-id -->
                     <select id="category_id" name="category_id" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
