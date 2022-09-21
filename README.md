@@ -294,7 +294,7 @@ The following sources were used to provide additional information relating to HT
 
 **Content**
 
-All content was written or adapted by the developer.
+All content was written or adapted by the developer with the exception of the recipes, which were sources from Tesco Real Food (https://realfood.tesco.com/gallery/10-best-vegan-cakes-and-bakes.html).
 
 **Media**
 
