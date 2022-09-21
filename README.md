@@ -15,49 +15,75 @@ The live site can be viewed here:
 
 **As a first time user, I want to...**
 
-    1. Understand the site's main purpose and find out more about what the site offers.
-    2. Navigate easily within the site to find relevant content.
-    3. View recipes without having to create an account.
-    3. Register for an account easily if I choose to.
-    4. Find the site's contact details, including social media links, and be able to contact the site easily.
+  1. Understand the site's main purpose and find out more about what the site offers.
+  2. Navigate easily within the site to find relevant content.
+  3. View recipes without having to create an account.
+  4. Register for an account easily if I choose to.
+  5. Find the site's contact details, including social media links, and be able to contact the site easily.
 
 **As a returning user, I want to...**
 
-    1. Login to my account easily.
-    2. Share my own recipes.
-    3. Find the recipes I have shared on their profile page.
-    4. Edit the recipes I have added.
-    5. Delete the recipes I have added.
+  1. Login to my account easily.
+  2. Share my own recipes.
+  3. Find the recipes I have shared on their profile page.
+  4. Edit the recipes I have added.
+  5. Delete the recipes I have added.
 
 **How this is achieved**
 
 **Design**
 
-   - The site uses a simple and consistent layout and design.
+ - The site uses a simple and consistent layout and design.
 
 **Navigation**
 
-   - Users can login or register using the buttons in the navbar. 
-   - Quick links appear below the hero image to allow users to quickly navigate to the recipes, about us, or contact pages.
+ - Users can login or register using the buttons in the navbar. 
+
+ ![navbar](cakebox/static/img/navbar.png)
+
+ - Quick links appear below the hero image to allow users to quickly navigate to the recipes, about us, or contact pages.
+
+ ![quick links](cakebox/static/img/quick-links.png)
 
 **Recipes**
 
-   - Users can create, read, update and delete (CRUD) their own recipes.
-   - Users can access recipes without having to register or login.
-   - Registered users can share their own recipes.
-   - Registered users can view their own recipes on their profile page.
+ - Users can create, read, update and delete (CRUD) their own recipes.
+
+ ![add recipe](cakebox/static/img/add-recipe.png)
+
+ - Users can access recipes without having to register or login.
+ - Registered users can share their own recipes.
+ - Registered users can view their own recipes on their profile page.
+
+  ![profile recipes](cakebox/static/img/profile-recipes.png)
 
 **Register, Login, and Logout**
 
-   - Users can register for an account easily.
-   - Users can login to their account easily.
-   - Users can logout of their account from their profile page.
+ - Users can register for an account easily.
+
+ ![register](cakebox/static/img/register.png)
+ 
+ - Users can login to their account easily.
+
+ ![login](cakebox/static/img/login.png)
+
+ - Users can logout of their account from the navbar.
+
+ ![logout](cakebox/static/img/logout.png)
 
 **Defensive programming**
    
-   - Some actions can only be performed by authorised users, e.g. only an admin can add, edit, or delete categories.
-   - Users can only edit or delete their own recipes.
-   - Users will get an alert asking them if they are sure they want to delete their recipe.
+ - Some actions can only be performed by authorised users, e.g. only an admin can add, edit, or delete categories.
+
+  ![admin categories](cakebox/static/img/admin-categories.png)
+
+ - Users can only edit or delete their own recipes.
+
+  ![user edit](cakebox/static/img/user-edit.png)
+
+ - Users will get an alert asking them if they are sure they want to delete their recipe.
+
+  ![delete modal](cakebox/static/img/delete-modal.png)
 
 ### Design
 
