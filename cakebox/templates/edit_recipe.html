@@ -80,10 +80,16 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <textarea type="text" class="form-control validate" name="recipe_desc" id="recipe_desc"
-                            placeholder="Recipe description (Required)" maxlength="500" required>
-                                {{- recipe.recipe_desc -}}
-                            </textarea>
+                        <textarea type="text" class="form-control" name="recipe_ingredients" id="recipe_ingredients"
+                            placeholder="Ingredients (Required)" required>
+                            {{- recipe.recipe_ingredients -}}
+                        </textarea>
+                    </div>     
+                    <div class="mb-3">
+                        <textarea type="text" class="form-control validate" name="recipe_inst" id="recipe_inst"
+                            placeholder="Recipe instructions (Required)" required>
+                            {{- recipe.recipe_inst -}}
+                        </textarea>
                     </div>
                     <!-- category-id -->
                     <select id="category_id" name="category_id" class="validate" required>
