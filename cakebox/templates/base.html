@@ -43,14 +43,28 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
+                        {% if session.user %}
+                        <li class="nav-item">
+                            <a class="nav-link hvr-underline-from-center" href="{{ url_for('profile', user_name=session['user']) }}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hvr-underline-from-center" href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link hvr-underline-from-center" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hvr-underline-from-center" href="{{ url_for('register') }}">Register</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                     <span class="navbar-text d-none d-lg-block ms-2">
                         {% if session.user %}
                         <a class="btn-main btn btn-lg" href="{{ url_for('profile', user_name=session['user']) }}"
                             role="button">Profile</a>
                         <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a>
-                        {% if session.user|lower == "admin"|lower %}
-                        <!-- <a class="btn-main-reverse btn btn-lg" href="{{ url_for('logout') }}" role="button">Log out</a> -->
-                        {% endif %}
                         {% else %}
                         <a class="btn-main-reverse btn btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
                         <a class="btn-main btn btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
